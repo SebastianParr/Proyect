@@ -12,288 +12,281 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import javax.swing.JOptionPane;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Sebastián Parra
+ *
  */
 public class Algoritmia {
 
-//    public static void main(String[] args) {
-//        String almacenamiento = "";
-//        String linea1 = "";
-//        String linea2 = "";
-//        String linea3 = "";
-//        String linea4 = "";
-//        String linea5 = "";
-//        String linea6 = "";
-//        String comandos[] = new String[6];
-//        comandos[0] = "create \"ans.txt\" as file_out";
-//        comandos[1] = "create \"tmp.txt\" as tmp";
-//        comandos[2] = "assign \"test.txt\" a file_in";
-//        comandos[3] = "tmp = sort file_in asc";
-//        comandos[4] = "tmp = rem_doubles tmp";
-//        comandos[5] = "file_out = tmp";
-//        int numlineas = 6;
-//        String datos[] = new String[numlineas];
-//        int contador = 0;
-//
-//        File file_out = new File("ans.txt");
-//        File tmp = new File("tmp.txt");
-//        File file_in = new File("test.txt");
-//        FileReader lector;
-//        BufferedReader br ;
-//        File comandosar;
-//        String co[];
-//        int gg = 0;
-//        int contlineas = 0;
-//
-//        try {
-//            comandosar = new File("C:\\Users\\lenovo\\Documents\\NetBeansProjects\\Algoritmia\\comandos.txt");
-//            FileReader LA1 = new FileReader(comandosar);
-//            BufferedReader BRCO = new BufferedReader(LA1);
-//
-//            almacenamiento = BRCO.readLine();
-////            while ((almacenamiento = BRCO.readLine()) != null) {
-////                cont++;
-////                for (int i = 0; i < comandos.length; i++) {
-////                    if (!(almacenamiento.equals(comandos[i]))) {
-////                        System.out.println("La linea " + cont + " està mal escrita");
-////
-////                    } else {
-////                        System.out.println("El comando " + almacenamiento + " està bien escrita");
-////
-////                    }
-////                }
-////            }
-//           while((almacenamiento=BRCO.readLine())!=null){
-//               contlineas++;
-//           }
-//           System.out.println("Número de líneas "+contlineas);
-//            while (almacenamiento != null && contador < numlineas) {
-//                datos[contador] = almacenamiento;
-//                almacenamiento = BRCO.readLine();
-//                contador++;
-//                
-//            }
-//            
-//            BRCO.close();
-//
-//            linea1 = datos[0];
-//            linea2 = datos[1];
-//            linea3 = datos[2];
-//            linea4 = datos[3];
-//            linea5 = datos[4];
-//            linea6 = datos[5];
-//
-////                for(int i=0; i<comandos.length; i++){
-////                    if(linea1.equals(comandos[i])){
-////                        System.out.println("Línea 1 coincide con "+comandos[i]+" la posición del arreglo fue "+i);
-////                    }else if(linea2.equals(comandos[i])){
-////                        System.out.println("Línea 2 coincide con "+comandos[i]+" la posición del arreglo fue "+i);
-////                    }else if(linea3.equals(comandos[i])){
-////                        System.out.println("Línea 3 coincide con "+comandos[i]+" la posición del arreglo fue "+i);
-////                    }else if(linea4.equals(comandos[i])){
-////                        System.out.println("Línea 4 coincide con "+comandos[i]+" la posición del arreglo fue "+i);
-////                    }else if(linea5.equals(comandos[i])){
-////                        System.out.println("Línea 5 coincide con "+comandos[i]+" la posición del arreglo fue "+i);
-////                    }else if(linea6.equals(comandos[i])){
-////                        System.out.println("Línea 6 coincide con "+comandos[i]+" la posición del arreglo fue "+i);
-////                    }else{
-////                        JOptionPane.showMessageDialog(null,"Hay un error en la sintaxis en la línea del archivo de comandos "+comandos[i]);
-////                    }
-////                }
-////            for (int i = 0; i < (contlineas+1); i++) {
-////                if (linea1.equals("create \"ans.txt\" as file_out")) {
-////                    file_out.createNewFile();
-////                } else if (linea1.equals("create \"tmp.txt\" as tmp")) {
-////                    tmp.createNewFile();
-////                } else if (linea1.equals("assign \"test.txt\" a file_in")) {
-////                   lector = new FileReader("test.txt");
-////                   br=new BufferedReader(lector);
-////                   
-////                } else if (linea1.equals("tmp = sort file_in asc")) {
-////                   String cadena="", cadena2="";
-////                   String dato[];
-////                   lector = new FileReader("test.txt");
-////                   br=new BufferedReader(lector);
-////                   while((cadena=br.readLine())!=null){
-////                       cadena2+=cadena;
-////                   }
-////                   dato=cadena2.split(" ");
-////                   Arrays.sort(dato);
-////                } else if (linea1.equals("tmp = rem_doubles tmp")) {
-////
-////                } else if (linea1.equals("file_out = tmp")) {
-////
-////                } else if (linea2.equals("create \"ans.txt\" as file_out")) {
-////
-////                } else if (linea2.equals("create \"tmp.txt\" as tmp")) {
-////
-////                } else if (linea2.equals("assign \"test.txt\" a file_in")) {
-////
-////                } else if (linea2.equals("tmp = sort file_in asc")) {
-////
-////                } else if (linea2.equals("tmp = rem_doubles tmp")) {
-////
-////                } else if (linea2.equals("file_out = tmp")) {
-////
-////                } else if (linea3.equals("create \"ans.txt\" as file_out")) {
-////
-////                } else if (linea3.equals("create \"tmp.txt\" as tmp")) {
-////
-////                } else if (linea3.equals("assign \"test.txt\" a file_in")) {
-////
-////                } else if (linea3.equals("tmp = sort file_in asc")) {
-////
-////                } else if (linea3.equals("tmp = rem_doubles tmp")) {
-////
-////                } else if (linea3.equals("file_out = tmp")) {
-////
-////                } else if (linea4.equals("create \"ans.txt\" as file_out")) {
-////
-////                } else if (linea4.equals("create \"tmp.txt\" as tmp")) {
-////
-////                } else if (linea4.equals("assign \"test.txt\" a file_in")) {
-////
-////                } else if (linea4.equals("tmp = sort file_in asc")) {
-////
-////                } else if (linea4.equals("tmp = rem_doubles tmp")) {
-////
-////                } else if (linea4.equals("file_out = tmp")) {
-////
-////                } else if (linea5.equals("create \"ans.txt\" as file_out")) {
-////
-////                } else if (linea5.equals("create \"tmp.txt\" as tmp")) {
-////
-////                } else if (linea5.equals("assign \"test.txt\" a file_in")) {
-////
-////                } else if (linea5.equals("tmp = sort file_in asc")) {
-////
-////                } else if (linea5.equals("tmp = rem_doubles tmp")) {
-////
-////                } else if (linea5.equals("file_out = tmp")) {
-////
-////                } else if (linea6.equals("create \"ans.txt\" as file_out")) {
-////
-////                } else if (linea6.equals("create \"tmp.txt\" as tmp")) {
-////
-////                } else if (linea6.equals("assign \"test.txt\" a file_in")) {
-////
-////                } else if (linea6.equals("tmp = sort file_in asc")) {
-////
-////                } else if (linea6.equals("tmp = rem_doubles tmp")) {
-////
-////                } else if (linea6.equals("file_out = tmp")) {
-////
-////                } else {
-////                    JOptionPane.showMessageDialog(null, "Hay un error en la sintaxis en la línea del archivo de comandos " + comandos[i]);
-////                }
-////            }
-//        } catch (IOException ex) {
-//
-//        }
-//    }
     public static void main(String[] args) {
-        String arreComm[];
-        int cont = 0;
-        boolean pass = true;
-        String line = " ";
-        //Read commands file 
+
+        File p = null;
+        String asc = "";
+        String desc = "";
+        ArrayList<variables> hl = new ArrayList();
         File coman = null;
         FileReader fr = null;
         BufferedReader br = null;
-        //Read commands file again
-        FileReader fr2 = null;
-        BufferedReader br2 = null;
-        //Declare file
-        File file_out = null;
-        File tmp = null;
-        File file_in = null;
-        //Read file file_in
-        FileReader fr3 = null;
-        BufferedReader br3 = null;
-        //Write file tmp
-        FileWriter fw = null;
-        BufferedWriter bw = null;
-        PrintWriter pw = null;
-        int lineas=0;
+
+        int lineas = 0;
 
         try {
             coman = new File("C:\\Users\\lenovo\\Documents\\NetBeansProjects\\Algoritmia\\comandos.txt");
             fr = new FileReader(coman);
             br = new BufferedReader(fr);
+            String ascd[] = null;
+            String des[] = null;
+            String wer[] = null;
 
+            String line = "";
             while ((line = br.readLine()) != null) {
-                cont++;
-                
-            }
-            br.close();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        int contador = 0;
-        if (pass == true) {
-            System.out.println("/////////////////////////////////////////////////");
-            try {
-                fr2 = new FileReader(coman);
-                br2 = new BufferedReader(fr2);
-                String lines = "";
-                String arre[] = new String[cont + 1];
-                String cadena = "";
-                while ((lines = br2.readLine()) != null) {
-                    arre[contador] = lines;
-                    contador++;
+                System.out.println(line);
+                String arre[] = line.split(" ");
 
-                }
-                
-                try {
+                for (int i = 0; i < arre.length; i++) {
+                    if (arre[i].equals("create")) {
+                        variables var = new variables();
+                        String new1 = "";
+                        String[] pp = arre[1].split("");
+                        for (int j = 0; j < pp.length; j++) {
+                            if (!pp[j].equals("\"")) {
+                                new1 = new1 + pp[j];
+                            }
+                        }
+                        String namevar = arre[3];
+                        var.setNvar(namevar);
+                        var.setNarch(new1);
+                        //System.out.println(nuevo);
+                        String ruta = "C:\\Users\\lenovo\\Documents\\NetBeansProjects\\Algoritmia\\" + new1;
 
-                    String vector[] = null;
-                    String namefile;
-                    String arch1[]=null;
-                    for (int i = 0; i < cont + 1; i++) {
-                        
-                        vector = arre[i].split(" ");
-                        for (int j = 0; j < vector.length; j++) {
-                            
-                            if (vector[j].equals("create")) {
-                                namefile = vector[j + 1];
-                                arch1[j] = vector[j + 3];
-                                File file = new File(namefile);
-                                try {
-                                    file.createNewFile();
+                        p = new File(ruta);
+                        if (!p.exists()) {
+                            p.createNewFile();
+                            System.out.println("Se creó el archivo " + new1 + " y se nombró como variable " + namevar);
+                        } else {
+                            System.out.println("El archivo ya existe");
+                        }
 
-                                } catch (IOException e) {
-                                    System.out.println(e);
+                        hl.add(var);
+
+                    } else if (arre[0].equals("assign")) {
+                        String new2 = "";
+                        String line1 = "";
+                        String line2 = "";
+                        String nm123 = "";
+                        String qw[] = arre[1].split("");
+                        for (int t = 0; t < qw.length; t++) {
+                            if (!qw[t].equals("\"")) {
+                                nm123 = nm123 + qw[t];
+                            }
+                        }
+                        System.out.println(nm123);
+                        variables var2 = new variables();
+                        File file = new File("C:\\Users\\lenovo\\Documents\\NetBeansProjects\\Algoritmia\\" + nm123);
+                        FileReader fr2 = new FileReader(file);
+                        BufferedReader br2 = new BufferedReader(fr2);
+                        while ((line1 = br2.readLine()) != null) {
+                            line2 = line2 + line1;
+                        }
+//                        wer=line2.split(" ");
+                        des = line2.split(" ");
+                        ascd = line2.split(" ");
+
+                        Arrays.sort(ascd);
+                        Arrays.sort(des, Collections.reverseOrder());
+//                        for (int a = 0; a < ascd.length; a++) {
+//                            asc = asc + ascd[a] + "\n";
+//                        }
+                        for (int w = 0; w < des.length; w++) {
+                            desc = desc + des[w];
+                        }
+                        String we[] = arre[1].split("");
+                        for (int j = 0; j < we.length; j++) {
+                            if (!we[j].equals("\"")) {
+                                new2 = new2 + we[j];
+                            }
+                        }
+                        String namvar = arre[3];
+                        var2.setNarch(new2);
+                        var2.setNvar(namvar);
+
+                        hl.add(var2);
+                        System.out.println("Se asignó el archivo " + new2 + " a la variable " + namvar);
+
+                    } else if ((arre[1].equals("=") && arre[2].equals("sort") && arre[4].equals("asc"))) {
+
+                        String li = "";
+                        if (!hl.isEmpty()) {
+                            for (int y = 0; y < hl.size(); y++) {
+
+                                if (hl.get(y).getNvar().equals(arre[0])) {
+
+                                    String a = hl.get(y).getNarch();
+                                    File file323 = new File("C:\\Users\\lenovo\\Documents\\NetBeansProjects\\Algoritmia\\" + a);
+                                    FileWriter fw = new FileWriter(file323);
+                                    BufferedWriter BW = new BufferedWriter(fw);
+                                    PrintWriter pw = new PrintWriter(BW);
+                                    for (int q = 0; q < ascd.length; q++) {
+                                        pw.println(ascd[q]);
+                                    }
+
+                                    pw.close();
+                                    BW.close();
+
                                 }
-                                System.out.println("Se creó el archivo, " + vector[j + 1] + vector[j + 3] + namefile + " exitosamente");
-                            } else if (vector[j].equals("assign")) {
-                                file_in= new File("test.txt");
-                                System.out.println("Se asignó el archivo test.txt a file in exitosamente");
-                            }else if(vector[j].equals(arch1)){
-                                System.out.println(vector[j]);
+
+                            }
+                        } else {
+                            System.out.println("Vacío");
+                        }
+
+                    } else if ((arre[1].equals("=") && arre[2].equals("sort") && arre[4].equals("desc"))) {
+                        for (int n = 0; n < hl.size(); n++) {
+
+                            if (hl.get(n).getNvar().equals(arre[0])) {
+
+                                String a = hl.get(n).getNarch();
+                                File file323 = new File("C:\\Users\\lenovo\\Documents\\NetBeansProjects\\Algoritmia\\" + a);
+                                FileWriter fw = new FileWriter(file323);
+                                BufferedWriter BW = new BufferedWriter(fw);
+                                PrintWriter pw = new PrintWriter(BW);
+                                for (int q = 0; q < des.length; q++) {
+                                    pw.println(des[q]);
+                                }
+
+                                pw.close();
+
                             }
 
                         }
+                        String er[];
+                        er = line.split(" ");
+                    } else if (arre[1].equals("=") && arre[2].equals("rem_doubles")) {
+                        for (int z = 0; z < hl.size(); z++) {
+                            if (hl.get(z).getNvar().equals(arre[3])) {
+                                for (int f = 0; f < ascd.length; f++) {
+                                    for (int k = 0; k < ascd.length - 1; k++) {
+                                        if (f != k) {
+                                            if (ascd[f].equals(ascd[k])) {
+                                                // eliminamos su valor
+                                                ascd[f] = "";
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            if (hl.get(z).getNvar().equals(arre[0])) {
+                                String par = hl.get(z).getNarch();
+                                File dw = new File("C:\\Users\\lenovo\\Documents\\NetBeansProjects\\Algoritmia\\" + par);
+                                FileWriter fr11 = new FileWriter(dw);
+                                BufferedWriter BW3 = new BufferedWriter(fr11);
+                                PrintWriter pw23 = new PrintWriter(BW3);
+                                for (int m = 0; m <= ascd.length - 1; m++) {
+                                    if (ascd[m] != "") {
+                                        pw23.println(ascd[m]);
+                                    }
+                                }
+                                pw23.close();
+                            }
+                        }
+                    } else if (arre[1].equals("=") && arre[3].equals("+")) {
+                        String as ="";
+                        String as2 = "";
+                        String res = "";
+                        int cont=0;
+                        for (int r = 0; r < hl.size(); r++) {
+                            if (hl.get(r).getNvar().equals(arre[2])) {
+                                String jk = hl.get(r).getNarch();
+                                String aq;
+
+                                File bv = new File("C:\\Users\\lenovo\\Documents\\NetBeansProjects\\Algoritmia\\" + jk);
+                                FileReader hj = new FileReader(bv);
+                                BufferedReader brw = new BufferedReader(hj);
+                                
+                                while ((aq = brw.readLine()) != null) {
+                                    as= as+aq;
+                                }
+                                
+                                
+                            }
+                            if (hl.get(r).getNvar().equals(arre[4])) {
+                                String hj = hl.get(r).getNarch();
+                                String aw;
+                                File bv1 = new File("C:\\Users\\lenovo\\Documents\\NetBeansProjects\\Algoritmia\\" + hj);
+                                FileReader hj1 = new FileReader(bv1);
+                                BufferedReader brw1 = new BufferedReader(hj1);
+                                while ((aw = brw1.readLine()) != null) {
+                                    as2 = as2 + aw + "\n";
+                                }
+                                System.err.println(as2);
+                            }
+                            res = as + as2;
+                            System.out.println(res);
+                            if(hl.get(r).getNvar().equals(arre[0])){
+                               String klñ= hl.get(r).getNarch();
+                               File bv12 = new File("C:\\Users\\lenovo\\Documents\\NetBeansProjects\\Algoritmia\\" + klñ);
+                               FileWriter fgr12= new FileWriter(bv12);
+                               BufferedWriter fgtr= new BufferedWriter(fgr12);
+                               PrintWriter pw123= new PrintWriter(fgtr);
+                               pw123.println(res);
+                               pw123.close();
+                            }
+                        }
+
+                    } else if (arre[1].equals("=")) {
+                        String hg[] = null;
+                        for (int o = 0; o < hl.size(); o++) {
+                            System.out.println(hl.get(o));
+                            if (hl.get(o).getNvar().equals(arre[2])) {
+                                String line13;
+                                String zx = hl.get(o).getNarch();
+                                String de = "";
+                                File nm = new File("C:\\Users\\lenovo\\Documents\\NetBeansProjects\\Algoritmia\\" + zx);
+                                FileReader frq3 = new FileReader(nm);
+                                BufferedReader BFEW = new BufferedReader(frq3);
+                                while ((line13 = BFEW.readLine()) != null) {
+                                    de = de + " " + line13;
+                                }
+                                System.out.println(de);
+                                hg = de.split(" ");
+                            } else {
+                                System.out.println("lkjhgf");
+                            }
+                            if (hl.get(o).getNvar().equals(arre[0])) {
+                                String cx = hl.get(o).getNarch();
+                                File cg = new File("C:\\Users\\lenovo\\Documents\\NetBeansProjects\\Algoritmia\\" + cx);
+                                FileWriter FW57 = new FileWriter(cg);
+                                BufferedWriter bw65 = new BufferedWriter(FW57);
+                                PrintWriter pw9 = new PrintWriter(bw65);
+                                for (int u = 0; u < hg.length; u++) {
+                                    pw9.println(hg[u]);
+                                }
+                                pw9.close();
+                            } else {
+                                System.out.println("nos");
+                            }
+                        }
+                    }else{
+                        System.out.println("Error");
                     }
-                } catch (NullPointerException e) {
-                    //System.out.println(e);
                 }
-                //arre = cadena.split(" ");
-//                for(int i=0; i<arre.length; i++){
-//                System.out.println(arre[i]);
-//                }
-                br2.close();
-            } catch (IOException ex) {
-                System.out.println("The file could'nt be read." + ex);;
             }
-        } else {
-            System.out.println("There is an incorrect command, correct it.");
+
+            br.close();
+        } catch (IOException e) {
+            System.out.println(e);
+        }catch(ArrayIndexOutOfBoundsException e){
+            System.out.println(e);
         }
+
     }
 
 }
